@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wQdIbGmsyasaHosaKvSmsOC1BAScDT4B4kEQggGJpv4gbE7QfjpWijI61s2zL4DsnI8XtcybmxdcVVIGDRfg5Q==",
+  "dgSpecHash": "WbPSJV/jW2OLFNvm3faDyAZv54nZgq7+jzQ//r+sJ55/Pl2DBh1ak2ErGYhEiFcT7ofgLcqf+5YbOKQlh98Z+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\danco\\source\\repos\\Movie\\FilmesApi\\FilmesApi\\FilmesApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\danco\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\danco\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\danco\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\danco\\.nuget\\packages\\efcore.automaticmigrations\\8.0.5\\efcore.automaticmigrations.8.0.5.nupkg.sha512",
