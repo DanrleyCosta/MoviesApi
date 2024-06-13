@@ -143,3 +143,5 @@ C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Microsoft
 C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\FilmesApi.xml
+C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\obj\Debug\net8.0\FilmesApi.xml

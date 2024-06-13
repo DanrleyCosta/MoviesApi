@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FilmesApi</name>
+    </assembly>
+    <members>
+        <member name="M:FilmesApi.Controllers.FilmeController.AddMovies(FilmesApi.Data.Dtos.CreateMovieDto)">
+            <summary>
+            Adiciona um filme ao banco de dados
+            </summary>
+            <param name="CreateMovieDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso inserção seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.ReadMovie(System.Int32,System.Int32)">
+            <summary>
+            Faz a leitura dos filmes no banco de dados
+            </summary>
+            <param name="ReadMovieDto">Objeto com os campos necessários para leitura dos filmes</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso leitura seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.ReadMovieById(System.Int32)">
+            <summary>
+            Faz a leitura do filme no banco de dados
+            </summary>
+            <param name="ReadMovieDto">Objeto com os campos necessários para leitura do filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso leitura seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.UpdateMovieById(System.Int32,FilmesApi.Data.Dtos.UpdateMovieDto)">
+            <summary>
+            Faz a atualização do filme no banco de dados
+            </summary>
+            <param name="ReadMovieDto">Objeto com os campos necessários para atualização do filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso atualização seja feita com sucesso</response>
+        </member>
+        <member name="M:FilmesApi.Controllers.FilmeController.DeleteMovieById(System.Int32)">
+            <summary>
+            Faz a remoção do filme no banco de dados
+            </summary>
+            <param name="ReadMovieDto">Objeto com os campos necessários para remoção do filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso remoção seja feita com sucesso</response>
+        </member>
+        <member name="T:FilmesApi.Migrations.CriandoTabelaFilme">
+            <inheritdoc />
+        </member>
+        <member name="M:FilmesApi.Migrations.CriandoTabelaFilme.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FilmesApi.Migrations.CriandoTabelaFilme.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FilmesApi.Migrations.CriandoTabelaFilme.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

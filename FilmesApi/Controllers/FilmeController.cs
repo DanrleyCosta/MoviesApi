@@ -23,6 +23,13 @@ namespace FilmesApi.Controllers
             _mapper = mapper;
         }
 
+
+        /// <summary>
+        /// Adiciona um filme ao banco de dados
+        /// </summary>
+        /// <param name="CreateMovieDto">Objeto com os campos necessários para criação de um filme</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">Caso inserção seja feita com sucesso</response>
         [HttpPost]
         public IActionResult AddMovies([FromBody] CreateMovieDto movieDto)
         {
@@ -39,6 +46,12 @@ namespace FilmesApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Faz a leitura dos filmes no banco de dados
+        /// </summary>
+        /// <param name="ReadMovieDto">Objeto com os campos necessários para leitura dos filmes</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">Caso leitura seja feita com sucesso</response>
         [HttpGet]
         public IEnumerable<ReadMovieDto> ReadMovie([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
@@ -46,6 +59,12 @@ namespace FilmesApi.Controllers
             return _mapper.Map<List<ReadMovieDto>>(resultMovie);
         }
 
+        /// <summary>
+        /// Faz a leitura do filme no banco de dados
+        /// </summary>
+        /// <param name="ReadMovieDto">Objeto com os campos necessários para leitura do filme</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">Caso leitura seja feita com sucesso</response>
         [HttpGet("{Id}")]
         public IActionResult ReadMovieById(int Id)
         {
@@ -56,6 +75,12 @@ namespace FilmesApi.Controllers
             return Ok(movieDto);
         }
 
+        /// <summary>
+        /// Faz a atualização do filme no banco de dados
+        /// </summary>
+        /// <param name="ReadMovieDto">Objeto com os campos necessários para atualização do filme</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">Caso atualização seja feita com sucesso</response>
         [HttpPut("{Id}")]
         public IActionResult UpdateMovieById(int Id, [FromBody] UpdateMovieDto movieDto)
         {
@@ -93,6 +118,12 @@ namespace FilmesApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Faz a remoção do filme no banco de dados
+        /// </summary>
+        /// <param name="ReadMovieDto">Objeto com os campos necessários para remoção do filme</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">Caso remoção seja feita com sucesso</response>
         [HttpDelete("{Id}")]
         public IActionResult DeleteMovieById(int Id)
         {
