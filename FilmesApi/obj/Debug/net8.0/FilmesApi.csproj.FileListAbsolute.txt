@@ -139,3 +139,7 @@ C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\runtimes\
 C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\EFCore.AutomaticMigrations.dll
 C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\obj\Debug\net8.0\FilmesApi.sourcelink.json
+C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\danco\source\repos\Movie\FilmesApi\FilmesApi\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

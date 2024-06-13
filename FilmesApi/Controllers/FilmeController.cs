@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Azure;
 using FilmesApi.Data;
 using FilmesApi.Data.Dtos;
 using FilmesApi.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmesApi.Controllers
@@ -49,6 +51,43 @@ namespace FilmesApi.Controllers
             var movie = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);   
             if (movie == null) { return  NotFound(); }  
             return Ok(movie);
+        }
+
+        [HttpPut("{Id}")]
+        public IActionResult UpdateMovieById(int Id, [FromBody] UpdateMovieDto movieDto)
+        {
+            var movie = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);
+
+            if (movie == null) { return NotFound(); }
+            _mapper.Map(movieDto, movie);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpPatch("{Id}")]
+        public IActionResult UpdateMovieByIdPatch(int Id, JsonPatchDocument<UpdateMovieDto> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                return BadRequest();
+            }
+
+            var movie = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);
+            if (movie == null) { return NotFound(); }
+
+            var movieToPatch = _mapper.Map<UpdateMovieDto>(movie);
+            patchDoc.ApplyTo(movieToPatch, ModelState);
+
+            if (!TryValidateModel(movieToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(movieToPatch, movie);
+            _context.SaveChanges();
+
+            return NoContent();
         }
     }
 }
