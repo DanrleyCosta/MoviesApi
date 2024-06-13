@@ -6,6 +6,7 @@ using FilmesApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FilmesApi.Controllers
 {
@@ -16,11 +17,11 @@ namespace FilmesApi.Controllers
         private FilmeContext _context;
         private IMapper _mapper;
 
-        public FilmeController(FilmeContext context, IMapper mapper) 
+        public FilmeController(FilmeContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-        }    
+        }
 
         [HttpPost]
         public IActionResult AddMovies([FromBody] CreateMovieDto movieDto)
@@ -30,7 +31,7 @@ namespace FilmesApi.Controllers
                 var movie = _mapper.Map<Movie>(movieDto);
                 _context.Filmes.Add(movie);
                 _context.SaveChanges();
-                return CreatedAtAction(nameof(ReadMovieById), new { id = movie.Id}, movie);  
+                return CreatedAtAction(nameof(ReadMovieById), new { id = movie.Id }, movie);
             }
             catch
             {
@@ -38,19 +39,21 @@ namespace FilmesApi.Controllers
             }
         }
 
-        [HttpGet]  
-        public IActionResult ReadMovie([FromQuery] int skip = 0, [FromQuery] int take = 10) 
+        [HttpGet]
+        public IEnumerable<ReadMovieDto> ReadMovie([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
-            var resultMovie = _context.Filmes.Skip(skip).Take(take).ToList();   
-            return Ok(resultMovie);
+            var resultMovie = _context.Filmes.Skip(skip).Take(take).ToList();
+            return _mapper.Map<List<ReadMovieDto>>(resultMovie);
         }
 
         [HttpGet("{Id}")]
         public IActionResult ReadMovieById(int Id)
         {
-            var movie = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);   
-            if (movie == null) { return  NotFound(); }  
-            return Ok(movie);
+            var movie = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);
+            if (movie == null) { return NotFound(); }
+            var movieDto = _mapper.Map<ReadMovieDto>(movie);
+
+            return Ok(movieDto);
         }
 
         [HttpPut("{Id}")]
@@ -85,6 +88,18 @@ namespace FilmesApi.Controllers
             }
 
             _mapper.Map(movieToPatch, movie);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{Id}")]
+        public IActionResult DeleteMovieById(int Id)
+        {
+            var movie = _context.Filmes.FirstOrDefault(filme => filme.Id == Id);
+
+            if (movie == null) { return NotFound(); }
+            _context.Remove(movie);
             _context.SaveChanges();
 
             return NoContent();
